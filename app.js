@@ -105,6 +105,9 @@ var items = [
     cartValue.innerHTML  = cart;
   }
 
+  var finalDollars = 0;
+  var finalCents =0;
+
   function updatePrice(){
     let total =0 ;
     for(let i=0; i<items.length;i++){
@@ -116,30 +119,30 @@ var items = [
   }
   var updatewhatsapplink = "https://api.whatsapp.com/send?phone=919000000000&text=Order%20details"
    
-  function whatsapp(){
+  function whatsapplink(){
     for(let i=0; i<items.length; i++){
         if(items[i].quantity !=0){
-            updatewhatsapplink+= "%0A" + items[i].name + "%0A" + items[i].quantity;
+            whatsapplink+= "%0A" + items[i].name + "%0A" + items[i].quantity;
         }
     }
-    updatewhatsapplink += "%0A" + "Total%0APrice" + finalDollars + "%0A" + finalcents;
+    whatsapplink += "%0A" + "Total%0APrice" + finalDollars + "%0A" + finalCents;
   }
 
   cart.onclick = () =>{
     updateCart();
-    updatePrice()
-   
+    updatePrice();
+    // updatewhatsapplink();
     
 
-    window.open(updatewhatsapplink, "_blank");
+    window.open(whatsapplink, "_blank");
 
     for(let i=0; i<items.length; i++){
         if(items[i].quantity !=0){
             console.log(
-                "Items Name:" +items[i].name + "Items Quantity"+ items[i].quantity
+                "Items Name: " +items[i].name + "Items Quantity " + items[i].quantity
             )
         }
     }
-    console.log("The Total amount is "+ finalDollars+ "$ and "+ "The total cents are "+ finalcents+" cents")
+    console.log("The Total amount is "+ finalDollars+ "$ and "+ "The total cents are "+ finalCents+" cents")
   }
 
