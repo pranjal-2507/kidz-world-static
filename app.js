@@ -134,7 +134,7 @@ var items = [
     // updatewhatsapplink();
     
 
-    window.open(whatsapplink, "_blank");
+    // window.open(whatsapplink, "_blank");
 
     for(let i=0; i<items.length; i++){
         if(items[i].quantity !=0){
